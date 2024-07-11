@@ -1,0 +1,139 @@
+:root {
+  --color1: rgb(204, 158, 97);
+  --color2: #626266;
+  --color3: #e0c5a0;
+  --blanco: #fff;
+  --negro: #000;
+}
+
+/********************** Estilos generaleS **********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--color1);
+}
+
+/********************** Inicio sección encabezado o header **********************/
+header {
+  display: flex;
+  background-color: var(--negro);
+  min-height: 70px;
+  justify-content: space-between; /*Alineacion horizontal */
+  align-items: center; /*Alineacion vertical */
+}
+
+header a {
+  text-decoration: none;
+  color: var(--blanco);
+}
+
+header a.logo {
+  display: flex;
+  align-items: center;
+}
+
+header a.logo img {
+  width: 100px;
+  margin: 10px;
+}
+
+header a.nav-link {
+  margin: 10px;
+  font-size: 20px;
+}
+
+header a.nav-link:hover {
+  color: var(--color3);
+}
+
+/********************** Fin sección encabezado o header **********************/
+
+
+/********************** Inicio sección principal o main **********************/
+.contenedor-imagenes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.contenedor-imagenes .imagen {
+  position: relative;
+  margin-right: -20px;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.contenedor-imagenes .imagen img {
+  width: 90px;
+  transition: transform 0.5s ease-in-out;
+  filter: drop-shadow(-2px 2px 15px rgba(0, 0, 0, 0.7));
+}
+
+.contenedor-imagenes .imagen:hover img {
+  /* transform: translateY(-20px); */
+  transform: scale(1.4, 1.4);
+}
+
+.contenedor-imagenes .imagen .nombre-jugador {
+  position: absolute;
+  background-color: var(--negro);
+  border-radius: 5px;
+  color: var(--blanco);
+  display: none;
+  min-width: 50px;
+  width: 200px;
+  top:-90px;
+  padding: 10px 10px;
+}
+
+.contenedor-imagenes .imagen .nombre-jugador .texto {
+ display: inline-block;
+ text-overflow: ellipsis;
+ overflow: hidden;
+ white-space: nowrap;
+ margin: 0 auto;
+ width: 150px;
+ text-align: center;
+ box-sizing: border-box;
+}
+
+.contenedor-imagenes .imagen:hover .nombre-jugador {
+  display: inline-block;
+  transform: translateY(-20px);
+  filter: drop-shadow(-2px 2px 15px rgba(0, 0, 0, 0.7));
+}
+
+.contenedor-imagenes .imagen .nombre-jugador::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  /* border: 5px solid red; */
+  bottom: -20px;
+  left: 20%;
+  border-top: 10px solid var(--negro);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+/********************** Fin sección principal o main **********************/
+
+
+
+@media (max-width: 800px) {
+  header {
+    padding: 10px 0;
+  }
+
+  .contenedor-imagenes {
+    flex-direction: column;
+    height: 240vh;
+  }
+}
